@@ -5,6 +5,7 @@ services:
         container_name: mongodb
         ports: 
             - 27017:27017
+        hostname: mongodb-scnp
         volumes: 
             - data:/data
         environment:
