@@ -3,9 +3,11 @@ services:
     mongodb:
         image: mongo
         container_name: mongodb
+
         ports: 
             - 27017:27017
-        hostname: mongodb-scnp
+
+
         volumes: 
             - data:/data
         environment:
@@ -15,6 +17,7 @@ services:
         image: mongo-express
         container_name: mongo-express
         restart: always
+
         ports:
             - 8081:8081
         environment:
