@@ -23,7 +23,7 @@ public class PathService {
     private EntityService entityService;
         @Autowired
     RoleService roleService;
-    private static final ChronoUnit TIME_TO_REINITIALIZE_UNIT = ChronoUnit.SECONDS;//should be 1 day
+    private static final ChronoUnit TIME_TO_REINITIALIZE_UNIT = ChronoUnit.MINUTES;//should be 1 day
     private static final int TIME_TO_REINITIALIZE=10;//should be 1 day
 
     List<Entity>AllEntity=null;
