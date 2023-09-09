@@ -29,7 +29,7 @@ public class PathController {
 
     }
 
-    @GetMapping(path = "s")
+    @GetMapping(path = "get_path_information")
     public List<EntityDto> getVisitedEntitiesInformation(@RequestParam String communeDepart, @RequestParam String communeDestination){
 
         return pathService.getInformationOfVisitedEntities(communeDepart,communeDestination);

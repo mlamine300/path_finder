@@ -55,13 +55,15 @@ public class PathFinderApplication {
 //			List<Entity>wilayaLst=Communes.getAllWilaya.apply(wilayaRole);
 //			entityRepository.saveAll(wilayaLst);
 //
-//			//connectCommuneToStation(lst,wilayaLst,entityService);
+//			System.out.println("dbs are set");
+//			connectCommuneToStation(lst,wilayaLst,entityService);
 //			String centre_de_treRole=roleRepository.findAll().stream().filter(r->r.getName().equals("centre_de_tre")).distinct().toList().get(0).getName();
 //			List<Entity>centreDeTree=Communes.GetAllRegion.apply(centre_de_treRole);
 //			entityRepository.saveAll(centreDeTree);
 //
-//			//connectStationToCentreDetree(centreDeTree,entityService);
-
+//			connectStationToCentreDetree(centreDeTree,entityService);
+//
+//			System.out.println("connection are set");
 
 
 
