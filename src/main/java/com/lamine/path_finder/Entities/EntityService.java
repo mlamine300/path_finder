@@ -57,9 +57,13 @@ public List<Entity>getAllEntitesTo(String roleName){
         Predicate<Entity> acceptableAndNotTaken=e->{
 Boolean b=RoleAccepted.contains(e.getRoleName())&&
         ((e.getConnectionIn()==null||e.getConnectionIn().size()==0)||
-                roleService.getConnectionTypeBetweenTwoRolesUsingName(roleName,
-                        e.getRoleName()).equals(ConnectionType.ONE_TO_MANY));
-            System.out.println(roleName+" - "+e.getName()+" - "+e.getRoleName()+" - is "+b);
+                roleService.getConnectionTypeBetweenTwoRolesUsingName(  e.getRoleName(),roleName
+                      ).equals(ConnectionType.ONE_TO_MANY));
+
+//            System.out.println(roleName+" - "+e.getName()+" - "+e.getRoleName()+" - is "+b+" because \n"
+//            +"first = "+(e.getConnectionIn()==null||e.getConnectionIn().size()==0)+" \nor\n second ="+roleService.getConnectionTypeBetweenTwoRolesUsingName(
+//                    e.getRoleName(),roleName).equals(ConnectionType.ONE_TO_MANY));
+//            System.out.println(roleName+" - "+e.getName()+" - "+e.getRoleName());
             return   b;
 
         };
@@ -79,7 +83,7 @@ Boolean b=RoleAccepted.contains(e.getRoleName())&&
                     ((e.getConnectionOut()==null||e.getConnectionOut().size()==0)||
                             roleService.getConnectionTypeBetweenTwoRolesUsingName(
                                     e.getRoleName(),roleName).equals(ConnectionType.ONE_TO_MANY));
-System.out.println(roleName+" - "+e.getName()+" - "+e.getRoleName()+" - is "+b);
+//System.out.println(roleName+" - "+e.getName()+" - "+e.getRoleName()+" - is "+b);
             return  b ;
 
         };

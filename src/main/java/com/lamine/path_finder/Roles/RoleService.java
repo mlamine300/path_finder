@@ -133,8 +133,10 @@ MongoTemplate mongoTemplate;
     }
 
     public ConnectionType getConnectionTypeBetweenTwoRolesUsingName(String fromName,String ToName){
-      return   roleRepository.findRoleByName(fromName).get().getConnectionsEnabledOut().stream()
-                .filter(cp->cp.getRoleName().equals(ToName)).toList().get(0).getType();
+        List<ConnectionPolicy>lst=roleRepository.findRoleByName(fromName).get().getConnectionsEnabledOut().stream()
+                .filter(cp->cp.getRoleName().equals(ToName)).toList();
+        if (lst==null||lst.size()==0)return null;
+      return   lst.get(0).getType();
     }
 
     public ConnectionType getConnectionTypeBetweenTwoRolesUsingId(String fromId,String ToId){

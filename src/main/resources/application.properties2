@@ -1,0 +1,10 @@
+spring.data.mongodb.authentication-database=admin
+spring.data.mongodb.uri=mongodb+srv://conexlog:nbSoAqB0F3Fq2zUD@firstapi.vk0091u.mongodb.net/?retryWrites=true&w=majority
+spring.data.mongodb.username=conexlog
+spring.data.mongodb.password=nbSoAqB0F3Fq2zUD
+spring.data.mongodb.database=path_finder
+spring.data.mongodb.port=27017
+
+spring.data.mongodb.auto-index-creation=true
+
+

@@ -1,6 +1,7 @@
 package com.lamine.path_finder.Entities;
 
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
@@ -11,6 +12,7 @@ import java.util.List;
 
 @Data
 @Document
+@AllArgsConstructor
 public class Entity {
 
 
@@ -25,16 +27,7 @@ public class Entity {
     Localisation localisation;
     String Responsable;
 
-    public Entity(String name, String roleName, List<String> connectionIn, List<String> connectionOut, String addresse, Localisation localisation, String responsable) {
 
-        this.name = name;
-        this.roleName = roleName;
-        ConnectionIn = connectionIn;
-        ConnectionOut = connectionOut;
-        this.addresse = addresse;
-        this.localisation = localisation;
-        Responsable = responsable;
-    }
 
     public Entity(String name, String roleName) {
         this.name = name;
@@ -48,5 +41,15 @@ public class Entity {
         this.name = name;
         this.roleName = roleName;
         this.addresse = addresse;
+    }
+
+    public Entity(Entity ent) {
+        this.name = ent.name;
+        this.roleName = ent.roleName;
+        ConnectionIn = List.copyOf(ent.getConnectionIn());
+        ConnectionOut = List.copyOf(ent.getConnectionOut());
+        this.addresse = ent.addresse;
+        this.localisation = ent.localisation;
+        Responsable = ent.getResponsable();
     }
 }
