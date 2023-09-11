@@ -47,25 +47,25 @@ public class PathFinderApplication {
 	@Bean
 	static CommandLineRunner runner2(EntityRepository entityRepository, RoleRepository roleRepository, MongoTemplate mon, EntityService entityService) {
 		return args -> {
-
-			roleRepository.saveAll(getRoles());
-			String commune=roleRepository.findAll().stream().filter(r->r.getName().equals("commune")).distinct().toList().get(0).getName();
-			List<Entity>lst=Communes.getAllCommunes.apply(commune);
-			entityRepository.saveAll(lst);
-			String wilayaRole=roleRepository.findAll().stream().filter(r->r.getName().equals("station")).distinct().toList().get(0).getName();
-			List<Entity>wilayaLst=Communes.getAllWilaya.apply(wilayaRole);
-			entityRepository.saveAll(wilayaLst);
-
-			System.out.println("dbs are set");
-			connectCommuneToStation(lst,wilayaLst,entityService);
-			String centre_de_treRole=roleRepository.findAll().stream().filter(r->r.getName().equals("centre_de_tre")).distinct().toList().get(0).getName();
-			List<Entity>centreDeTree=Communes.GetAllRegion.apply(centre_de_treRole);
-			entityRepository.saveAll(centreDeTree);
-
-			connectStationToCentreDetree(centreDeTree,entityService);
-
-			System.out.println("connection are set");
-			new Entity("","",null,null,"",new Localisation(0f,0f),"");
+//
+//			roleRepository.saveAll(getRoles());
+//			String commune=roleRepository.findAll().stream().filter(r->r.getName().equals("commune")).distinct().toList().get(0).getName();
+//			List<Entity>lst=Communes.getAllCommunes.apply(commune);
+//			entityRepository.saveAll(lst);
+//			String wilayaRole=roleRepository.findAll().stream().filter(r->r.getName().equals("station")).distinct().toList().get(0).getName();
+//			List<Entity>wilayaLst=Communes.getAllWilaya.apply(wilayaRole);
+//			entityRepository.saveAll(wilayaLst);
+//
+//			System.out.println("dbs are set");
+//			connectCommuneToStation(lst,wilayaLst,entityService);
+//			String centre_de_treRole=roleRepository.findAll().stream().filter(r->r.getName().equals("centre_de_tre")).distinct().toList().get(0).getName();
+//			List<Entity>centreDeTree=Communes.GetAllRegion.apply(centre_de_treRole);
+//			entityRepository.saveAll(centreDeTree);
+//
+//			connectStationToCentreDetree(centreDeTree,entityService);
+//
+//			System.out.println("connection are set");
+//			new Entity("","",null,null,"",new Localisation(0f,0f),"");
 
 
 		};
