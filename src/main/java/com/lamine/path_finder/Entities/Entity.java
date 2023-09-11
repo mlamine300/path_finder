@@ -44,6 +44,8 @@ public class Entity {
     }
 
     public Entity(Entity ent) {
+
+
         this.name = ent.name;
         this.roleName = ent.roleName;
         ConnectionIn = List.copyOf(ent.getConnectionIn());

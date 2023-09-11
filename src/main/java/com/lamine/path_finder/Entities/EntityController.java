@@ -1,6 +1,7 @@
 package com.lamine.path_finder.Entities;
 
 import lombok.AllArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -11,31 +12,31 @@ import java.util.List;
 public class EntityController {
     EntityService entityService;
     @PostMapping(path = "add_entity")//working
-    public void AddEntity(@RequestBody Entity entity){
-        entityService.addEntity(entity);
+    public ResponseEntity<Object> AddEntity(@RequestBody Entity entity){
+      return   entityService.addEntity(entity);
     }
     @PostMapping(path = "delete_entity")//working
-    public void DeleteEntity(@RequestParam String name){
-        entityService.deleteEntity(name);
+    public ResponseEntity<Object> DeleteEntity(@RequestParam String name){
+       return entityService.deleteEntity(name);
     }
 
     @PostMapping(path = "update_entity")//working
-    public void UpdateEntity(@RequestParam String name,@RequestBody Entity entity){
-        entityService.updateEntity(name,entity);
+    public ResponseEntity<Object> UpdateEntity(@RequestParam String name,@RequestBody Entity entity){
+     return    entityService.updateEntity(name,entity);
     }
 
     @PostMapping(path = "add_coonection")//working
-    public void AddConnection(@RequestParam String fromName,@RequestParam String toName){
-        entityService.addConnection(fromName,toName);
+    public ResponseEntity<Object> AddConnection(@RequestParam String fromName,@RequestParam String toName){
+       return entityService.addConnection(fromName,toName);
     }
     @PostMapping(path = "link_entityTo")//0%
-    public void LinkEntityTo(@RequestParam String fromName,@RequestBody List<String> tolist){
-        entityService.addToListConnection(fromName,tolist);
+    public ResponseEntity<Object> LinkEntityTo(@RequestParam String fromName,@RequestBody List<String> tolist){
+       return entityService.addToListConnection(fromName,tolist);
     }
 
     @PostMapping(path = "link_entityFrom")//0%
-    public void LinkEntityFrom(@RequestParam String toName,@RequestBody List<String> tolist){
-        entityService.addFromListConnection(toName,tolist);
+    public ResponseEntity<Object> LinkEntityFrom(@RequestParam String toName,@RequestBody List<String> tolist){
+       return entityService.addFromListConnection(toName,tolist);
     }
     @GetMapping(path = "get_entity")//working
 
